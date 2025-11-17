@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="h-screen bg-[#222222]">
-    <RouterLink to="/">Home</RouterLink>
+  <div class="min-h-screen bg-[#1a1a1a]">
     <RouterView />
   </div>
 </template>
