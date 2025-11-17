@@ -1,2 +1,10 @@
 @import './base.css';
 @import 'tailwindcss';
+
+@theme {
+  --color-onyx: #12130f;
+  --color-jungleTeal: #5b9279;
+  --color-celadon: #8fcb8b;
+  --color-AlabasterGrey: #eae6e5;
+  --color-Taupe: #8f8073;
+}

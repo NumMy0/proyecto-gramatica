@@ -3,7 +3,7 @@ import TuringMachineSimulator from '@/components/TuringMachineSimulator.vue'
 </script>
 
 <template>
-  <main class="min-h-screen bg-[#1a1a1a] text-white py-8">
+  <main class="min-h-screen flex justify-center items-center bg-onyx text-AlabasterGrey py-8">
     <TuringMachineSimulator />
   </main>
 </template>

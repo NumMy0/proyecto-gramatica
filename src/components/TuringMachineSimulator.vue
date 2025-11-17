@@ -49,12 +49,12 @@ function handleReset() {
 </script>
 
 <template>
-  <div class="w-full max-w-7xl mx-auto p-6 space-y-8">
+  <div class="h-full mx-auto p-6 space-y-8">
     <!-- Título -->
     <div class="text-center space-y-2">
-      <h1 class="text-4xl font-bold text-white">Simulador de Máquina de Turing</h1>
-      <p class="text-gray-400">
-        Validador de PINs de 4 o 6 dígitos - Regex: <code class="text-blue-400">\d{4}|\d{6}</code>
+      <h1 class="text-4xl font-bold text-AlabasterGrey">Simulador de Máquina de Turing</h1>
+      <p class="text-Taupe">
+        Validador de PINs de 4 o 6 dígitos - Regex: <code class="text-celadon">\d{4}|\d{6}</code>
       </p>
     </div>
 
@@ -69,7 +69,7 @@ function handleReset() {
     <!-- Mensajes de error -->
     <div
       v-if="errorMessage"
-      class="bg-red-900/20 border border-red-500 text-red-400 px-4 py-3 rounded-lg"
+      class="bg-red-900/20 border border-red-500 text-red-300 px-4 py-3 rounded-lg"
     >
       {{ errorMessage }}
     </div>
@@ -85,34 +85,34 @@ function handleReset() {
 
       <!-- Mensaje de estado -->
       <div class="text-center">
-        <p class="text-xl font-semibold text-gray-300">{{ statusMessage }}</p>
-        <p v-if="lastStepMessage" class="text-sm text-gray-500 mt-1">
+        <p class="text-xl font-semibold text-AlabasterGrey">{{ statusMessage }}</p>
+        <p v-if="lastStepMessage" class="text-sm text-Taupe mt-1">
           {{ lastStepMessage }}
         </p>
-        <p class="text-sm text-gray-500 mt-1">Pasos ejecutados: {{ tapeState.stepCount }}</p>
+        <p class="text-sm text-Taupe mt-1">Pasos ejecutados: {{ tapeState.stepCount }}</p>
       </div>
 
       <!-- Cinta de Turing -->
-      <div class="bg-gray-900 rounded-lg p-4">
-        <h2 class="text-lg font-semibold text-gray-300 mb-4 text-center">Cinta</h2>
+      <div class="bg-onyx/50 border border-Taupe/30 rounded-lg p-4">
+        <h2 class="text-lg font-semibold text-AlabasterGrey mb-4 text-center">Cinta</h2>
         <TuringTape :tape-state="tapeState" />
       </div>
 
       <!-- Información adicional -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-        <div class="bg-gray-800 rounded-lg p-4">
-          <p class="text-gray-400 mb-1">Posición del cabezal:</p>
-          <p class="text-2xl font-bold text-blue-400">{{ tapeState.headPosition }}</p>
+        <div class="bg-onyx/50 border border-Taupe/30 rounded-lg p-4">
+          <p class="text-Taupe mb-1">Posición del cabezal:</p>
+          <p class="text-2xl font-bold text-celadon">{{ tapeState.headPosition }}</p>
         </div>
-        <div class="bg-gray-800 rounded-lg p-4">
-          <p class="text-gray-400 mb-1">Símbolo actual:</p>
-          <p class="text-2xl font-bold text-blue-400 font-mono">
+        <div class="bg-onyx/50 border border-Taupe/30 rounded-lg p-4">
+          <p class="text-Taupe mb-1">Símbolo actual:</p>
+          <p class="text-2xl font-bold text-celadon font-mono">
             {{ tapeState.tape[tapeState.headPosition] || '_' }}
           </p>
         </div>
-        <div class="bg-gray-800 rounded-lg p-4">
-          <p class="text-gray-400 mb-1">Longitud de entrada:</p>
-          <p class="text-2xl font-bold text-blue-400">
+        <div class="bg-onyx/50 border border-Taupe/30 rounded-lg p-4">
+          <p class="text-Taupe mb-1">Longitud de entrada:</p>
+          <p class="text-2xl font-bold text-celadon">
             {{ tapeState.tape.filter((s) => s !== '_').length }}
           </p>
         </div>
@@ -120,8 +120,11 @@ function handleReset() {
     </div>
 
     <!-- Instrucciones -->
-    <div v-else class="bg-gray-800 rounded-lg p-6 text-center text-gray-400">
-      <h2 class="text-xl font-semibold text-white mb-3">Cómo usar el simulador</h2>
+    <div
+      v-else
+      class="bg-onyx/50 border border-Taupe/30 gap-6 rounded-lg p-6 text-center text-Taupe"
+    >
+      <h2 class="text-xl font-semibold text-AlabasterGrey mb-3">Cómo usar el simulador</h2>
       <ol class="text-left max-w-2xl mx-auto space-y-2">
         <li>1. Ingrese un PIN de 4 o 6 dígitos en el campo de entrada</li>
         <li>2. Haga clic en "Iniciar" para cargar la cadena en la cinta</li>
