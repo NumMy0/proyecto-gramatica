@@ -53,6 +53,16 @@ export function useTuringMachine(config: TuringMachineConfig) {
   }
 
   /**
+   * Obtiene el símbolo en la posición actual del cabezal
+   */
+  function getCurrentSymbol(): string {
+    if (tapeState.value.headPosition >= tapeState.value.tape.length) {
+      tapeState.value.tape.push(config.blankSymbol)
+    }
+    return tapeState.value.tape[tapeState.value.headPosition] ?? config.blankSymbol
+  }
+
+  /**
    * Ejecuta un paso de la máquina de Turing
    */
   function step(): StepResult {
@@ -63,13 +73,7 @@ export function useTuringMachine(config: TuringMachineConfig) {
       }
     }
 
-    // Extender la cinta si es necesario antes de leer
-    if (tapeState.value.headPosition >= tapeState.value.tape.length) {
-      tapeState.value.tape.push(config.blankSymbol)
-    }
-
-    const currentSymbol: string =
-      tapeState.value.tape[tapeState.value.headPosition] || config.blankSymbol
+    const currentSymbol = getCurrentSymbol()
     const transition = findTransition(tapeState.value.currentState, currentSymbol)
 
     if (!transition) {
