@@ -68,7 +68,7 @@ export function useTuringMachine(config: TuringMachineConfig) {
       tapeState.value.tape.push(config.blankSymbol)
     }
 
-    const currentSymbol = tapeState.value.tape[tapeState.value.headPosition]!
+    const currentSymbol = tapeState.value.tape[tapeState.value.headPosition] as string
     const transition = findTransition(tapeState.value.currentState, currentSymbol)
 
     if (!transition) {
