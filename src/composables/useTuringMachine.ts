@@ -63,8 +63,12 @@ export function useTuringMachine(config: TuringMachineConfig) {
       }
     }
 
-    const currentSymbol: string =
-      tapeState.value.tape[tapeState.value.headPosition] ?? config.blankSymbol
+    // Extender la cinta si es necesario antes de leer
+    if (tapeState.value.headPosition >= tapeState.value.tape.length) {
+      tapeState.value.tape.push(config.blankSymbol)
+    }
+
+    const currentSymbol = tapeState.value.tape[tapeState.value.headPosition]!
     const transition = findTransition(tapeState.value.currentState, currentSymbol)
 
     if (!transition) {
